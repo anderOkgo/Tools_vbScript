@@ -36,8 +36,9 @@ x=0
 nom="So"
 exe.exec("cmd /c ver>ver.txt | exit")
 exte=inputbox("Digite la extension de los archivos","Entrada de datos")
-pre=inputbox("Digite prefijo")
+pre=inputbox("Digite prefijo en caso de querer agregarlo")
 nexte=inputbox("Digite la nueva extension ¡SOLO! en caso de querer cambiarla","Opcional",exte)
+eenum = inputbox("Si desea una enumeracion incremetal digite: 1")
 if nexte= "" then
 nexte=exte
 end if
@@ -82,7 +83,11 @@ End If
 Next
 msgboxA=(" if exist "  &   """"  &  nom  & " (" & x & ")"    &    "." & exte  & """")
 msgboxB=("(rename " &  """"  &  nom  & " (" & x & ")"    &    "." & exte  & """")
+if eenum = "1" then
 msgboxC=("" &  """" & pre & "" & ceros2 & y+ForReading  & "." & sText & "." & nexte  & """"     & ")")
+else
+msgboxC=("" &  """" &   sText      &    "." & nexte  & """"     & ")")
+end if
 f1.WriteLine ("" & msgboxA & " " & msgboxB & " " & msgboxC)
 y=y+ForReading
 x=x+ForReading
